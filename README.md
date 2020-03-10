@@ -20,4 +20,12 @@ the size of either the text or one of its lines.
 int get_next_line(const int fd, char **line);
 ```  
 
+### Compilation example
+```
+gcc -Wall -Wextra -Werror main_example.c get_next_line.c libft/libft.a -o gnl
+./gnl text_example
+```  
+You should see the text contained in "text_example" printed on the standard output.
+
+
 Obtained mark for this project : 123/100

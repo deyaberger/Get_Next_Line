@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 14:47:44 by dberger           #+#    #+#             */
-/*   Updated: 2019/05/03 10:14:25 by dberger          ###   ########.fr       */
+/*   Updated: 2020/03/10 12:47:16 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			ft_content(t_list *link, int fd, char **line)
 	gnl = (t_fd*)link->content;
 	ret = 0;
 	while (!(x = ft_strchr(gnl->tab, '\n'))
-			&& (ret = read(fd, buf, BUFF_SIZE)))
+			&& (ret = read(fd, buf, BUFF_SIZE)) && buf[0] != '\0')
 	{
 		buf[ret] = '\0';
 		gnl->tab = ft_strjoin_f(gnl->tab, buf, 1);
@@ -96,6 +96,7 @@ void		ft_del(t_list *link, t_list **begin)
 	else
 		prev->next = tmp->next;
 	free(((t_fd*)tmp->content)->tab);
+	free(((t_fd*)tmp->content));
 	free(tmp);
 }
 
