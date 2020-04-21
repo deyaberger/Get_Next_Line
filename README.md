@@ -22,6 +22,7 @@ int get_next_line(const int fd, char **line);
 
 ### Compilation example
 ``` make ``` then ``` ./gnl text_example ```
+
 You should see the text contained in "text_example" printed on the standard output.
 
 
